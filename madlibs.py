@@ -58,10 +58,22 @@ def show_madlib_form():
     if player_answer == "Yes":
         return render_template("game.html")
 
-    elif player_answer == "No":
+    else:
         return render_template("goodbye.html")
 
-    
+
+@app.route("/madlibs")
+
+def show_madlib():
+    """ show madlib"""
+    person = request.args.get("person")
+    color = request.args.get("color")
+    noun = request.args.get("name")
+    adjective = request.args.get("adjective")
+
+    return render_template("madlibs.html", person = person, color = color, noun = noun, adjective = adjective)  
+
+
 
 
 if __name__ == "__main__":
